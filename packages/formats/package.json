@@ -1,0 +1,29 @@
+{
+  "name": "@vogwork/formats",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./pdf-flow": "./src/pdf-flow.ts",
+    "./pdfjs": "./src/pdfjs.ts",
+    "./table": "./src/table.ts",
+    "./image": "./src/image.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vogwork/core": "workspace:*",
+    "pdf-lib": "^1.17.1",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "pdfjs-dist": "^6.5.438",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@vogwork/tsconfig": "workspace:*",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,15 @@
+packages:
+  - apps/*
+  - packages/*
+  - packages/tools/*
+  - tooling/*
+
+# pnpm 10 memblokir skrip instalasi secara default. Hanya paket di bawah ini
+# yang boleh menjalankannya; sisanya tidak dibutuhkan untuk build.
+onlyBuiltDependencies:
+  - esbuild
+  - unrs-resolver
+  - "@tailwindcss/oxide"
+
+ignoredBuiltDependencies:
+  - tesseract.js

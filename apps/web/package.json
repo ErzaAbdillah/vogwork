@@ -1,0 +1,44 @@
+{
+  "name": "@vogwork/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/copy-vendor.mjs && next dev",
+    "build": "node scripts/copy-vendor.mjs && next build && node scripts/postbuild.mjs",
+    "start": "node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@vogwork/core": "workspace:*",
+    "@vogwork/formats": "workspace:*",
+    "@vogwork/i18n": "workspace:*",
+    "@vogwork/storage": "workspace:*",
+    "@vogwork/tool-bg-remove": "workspace:*",
+    "@vogwork/tool-certificate": "workspace:*",
+    "@vogwork/tool-converter": "workspace:*",
+    "@vogwork/tool-invoice": "workspace:*",
+    "@vogwork/tool-letter-dinas": "workspace:*",
+    "@vogwork/tool-ocr": "workspace:*",
+    "@vogwork/tool-pdf-toolkit": "workspace:*",
+    "@vogwork/tool-qr": "workspace:*",
+    "@vogwork/ui": "workspace:*",
+    "@vogwork/workers": "workspace:*",
+    "lucide-react": "^1.66.0",
+    "next": "16.4.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "pdf-lib": "^1.17.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.2.0",
+    "@vogwork/tsconfig": "workspace:*",
+    "tailwindcss": "^4.3.3",
+    "typescript": "5.9.3"
+  }
+}

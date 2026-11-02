@@ -1,0 +1,26 @@
+{
+  "name": "@vogwork/storage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dexie": "^4.4.7",
+    "fflate": "^0.8.3"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@vogwork/tsconfig": "workspace:*",
+    "react": "^19.3.1",
+    "typescript": "5.9.3"
+  }
+}

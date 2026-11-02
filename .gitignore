@@ -1,0 +1,21 @@
+node_modules/
+.pnpm-store/
+.turbo/
+.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+
+# Aset vendor disalin otomatis dari node_modules saat build
+apps/web/public/vendor/
+
+.env*.local
+.DS_Store
+Thumbs.db

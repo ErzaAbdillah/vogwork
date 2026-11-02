@@ -1,0 +1,33 @@
+{
+  "name": "@vogwork/tool-qr",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./manifest": "./src/manifest.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vogwork/core": "workspace:*",
+    "@vogwork/formats": "workspace:*",
+    "@vogwork/i18n": "workspace:*",
+    "@vogwork/storage": "workspace:*",
+    "@vogwork/ui": "workspace:*",
+    "lucide-react": "^1.66.0",
+    "qrcode": "^1.5.4"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.3.0",
+    "@vogwork/tsconfig": "workspace:*",
+    "react": "^19.3.1",
+    "typescript": "5.9.3"
+  }
+}

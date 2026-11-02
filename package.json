@@ -1,0 +1,27 @@
+{
+  "name": "vogwork",
+  "private": true,
+  "type": "module",
+  "description": "Suite produktivitas gratis yang berjalan di browser dan menyimpan file di perangkat pengguna.",
+  "packageManager": "pnpm@10.34.9",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "turbo run dev --filter=@vogwork/web",
+    "build": "turbo run build",
+    "lint": "eslint .",
+    "typecheck": "turbo run typecheck",
+    "test": "vitest run",
+    "test:e2e": "pnpm --filter @vogwork/web test:e2e",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.4.4",
+    "turbo": "^2.11.10",
+    "typescript": "5.9.3",
+    "vitest": "^5.0.5"
+  }
+}

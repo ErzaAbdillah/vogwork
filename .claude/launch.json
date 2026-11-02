@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vogwork-static",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["apps/web/scripts/serve.mjs"],
+      "port": 4173
+    },
+    {
+      "name": "vogwork-dev",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dev"],
+      "port": 3000
+    }
+  ]
+}

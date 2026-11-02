@@ -1,0 +1,12 @@
+import { createRegistry } from "@vogwork/core";
+import bgRemove from "@vogwork/tool-bg-remove";
+import certificate from "@vogwork/tool-certificate";
+import converter from "@vogwork/tool-converter";
+import invoice from "@vogwork/tool-invoice";
+import letterDinas from "@vogwork/tool-letter-dinas";
+import ocr from "@vogwork/tool-ocr";
+import pdfToolkit from "@vogwork/tool-pdf-toolkit";
+import qr from "@vogwork/tool-qr";
+
+/** Registry di sisi klien: setiap tool membawa `run` dan `ui` yang dimuat lazy. */
+export const registry = createRegistry([pdfToolkit, qr, certificate, letterDinas, invoice, ocr, bgRemove, converter]);
