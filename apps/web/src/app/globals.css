@@ -5,56 +5,71 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*
+ * Tema "mindful": latar abu-biru tenang bertekstur grain, cahaya gradasi
+ * hijau-kuning yang di-blur, kartu buram seperti kaca, dan huruf tipis.
+ */
 :root {
-  --radius: 0.65rem;
-  --background: oklch(0.985 0.004 170);
-  --foreground: oklch(0.22 0.02 205);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.02 205);
-  --primary: oklch(0.52 0.11 172);
-  --primary-foreground: oklch(0.99 0.005 170);
-  --secondary: oklch(0.955 0.01 175);
-  --secondary-foreground: oklch(0.27 0.02 205);
-  --muted: oklch(0.955 0.008 175);
-  --muted-foreground: oklch(0.48 0.02 205);
-  --accent: oklch(0.945 0.022 172);
-  --accent-foreground: oklch(0.27 0.04 190);
-  --destructive: oklch(0.56 0.21 27);
-  --success: oklch(0.52 0.13 152);
-  --warning: oklch(0.7 0.15 70);
-  --border: oklch(0.905 0.01 185);
-  --input: oklch(0.88 0.012 185);
-  --ring: oklch(0.6 0.11 172);
-  --brand-gradient: linear-gradient(135deg, oklch(0.55 0.12 172), oklch(0.5 0.12 210));
+  --radius: 0.9rem;
+  --background: oklch(0.885 0.009 250);
+  --foreground: oklch(0.24 0.03 150);
+  --card: oklch(0.975 0.004 250 / 0.72);
+  --card-solid: oklch(0.975 0.004 250);
+  --card-foreground: oklch(0.24 0.03 150);
+  --primary: oklch(0.55 0.16 145);
+  --primary-foreground: oklch(0.985 0.01 120);
+  --secondary: oklch(0.93 0.012 250 / 0.8);
+  --secondary-foreground: oklch(0.28 0.03 150);
+  --muted: oklch(0.92 0.01 250 / 0.7);
+  --muted-foreground: oklch(0.45 0.02 220);
+  --accent: oklch(0.93 0.05 130 / 0.7);
+  --accent-foreground: oklch(0.28 0.06 145);
+  --destructive: oklch(0.55 0.2 25);
+  --success: oklch(0.52 0.15 145);
+  --warning: oklch(0.72 0.15 80);
+  --border: oklch(0.82 0.012 250 / 0.9);
+  --input: oklch(0.8 0.014 250);
+  --ring: oklch(0.62 0.16 140);
+  --glow-1: oklch(0.72 0.2 140 / 0.55);
+  --glow-2: oklch(0.88 0.16 100 / 0.5);
+  --glow-3: oklch(0.7 0.12 230 / 0.35);
+  --grain-opacity: 0.11;
+  --brand-gradient: linear-gradient(160deg, #2f9a45 0%, #8cc63f 55%, #f2c94c 100%);
 }
 
 .dark {
-  --background: oklch(0.165 0.012 215);
-  --foreground: oklch(0.95 0.008 180);
-  --card: oklch(0.205 0.014 215);
-  --card-foreground: oklch(0.95 0.008 180);
-  --primary: oklch(0.74 0.12 170);
-  --primary-foreground: oklch(0.18 0.03 190);
-  --secondary: oklch(0.26 0.015 215);
-  --secondary-foreground: oklch(0.93 0.01 180);
-  --muted: oklch(0.245 0.014 215);
-  --muted-foreground: oklch(0.7 0.015 200);
-  --accent: oklch(0.28 0.025 195);
-  --accent-foreground: oklch(0.95 0.01 180);
+  --background: oklch(0.13 0.006 250);
+  --foreground: oklch(0.95 0.01 120);
+  --card: oklch(0.2 0.008 250 / 0.62);
+  --card-solid: oklch(0.2 0.008 250);
+  --card-foreground: oklch(0.95 0.01 120);
+  --primary: oklch(0.8 0.19 135);
+  --primary-foreground: oklch(0.18 0.04 145);
+  --secondary: oklch(0.26 0.01 250 / 0.75);
+  --secondary-foreground: oklch(0.93 0.01 120);
+  --muted: oklch(0.24 0.01 250 / 0.6);
+  --muted-foreground: oklch(0.72 0.015 230);
+  --accent: oklch(0.3 0.05 140 / 0.6);
+  --accent-foreground: oklch(0.95 0.02 120);
   --destructive: oklch(0.68 0.19 25);
-  --success: oklch(0.74 0.14 152);
-  --warning: oklch(0.8 0.14 75);
-  --border: oklch(0.3 0.015 215);
-  --input: oklch(0.34 0.016 215);
-  --ring: oklch(0.65 0.11 172);
-  --brand-gradient: linear-gradient(135deg, oklch(0.66 0.12 170), oklch(0.6 0.11 210));
+  --success: oklch(0.78 0.17 145);
+  --warning: oklch(0.82 0.14 85);
+  --border: oklch(0.32 0.012 250 / 0.8);
+  --input: oklch(0.36 0.014 250);
+  --ring: oklch(0.72 0.16 140);
+  --glow-1: oklch(0.62 0.2 145 / 0.42);
+  --glow-2: oklch(0.6 0.2 300 / 0.28);
+  --glow-3: oklch(0.65 0.15 220 / 0.32);
+  --grain-opacity: 0.07;
+  --brand-gradient: linear-gradient(160deg, #3fbf5a 0%, #a6d94a 55%, #f5c542 100%);
 }
 
 @theme inline {
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-sans: var(--font-tight), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-card-solid: var(--card-solid);
   --color-card-foreground: var(--card-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -70,8 +85,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
@@ -89,10 +104,45 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    position: relative;
+    isolation: isolate;
+  }
+  /* Cahaya gradasi yang di-blur, seperti siluet pada poster "mindful". */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -20vmax;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      radial-gradient(32vmax 40vmax at 18% 22%, var(--glow-1), transparent 70%),
+      radial-gradient(28vmax 30vmax at 82% 12%, var(--glow-3), transparent 70%),
+      radial-gradient(36vmax 32vmax at 70% 88%, var(--glow-2), transparent 70%);
+    filter: blur(40px);
+  }
+  /* Tekstur grain halus di seluruh layar. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1,
+  h2 {
+    letter-spacing: -0.025em;
   }
   ::selection {
-    @apply bg-primary/20;
+    @apply bg-primary/25;
   }
+}
+
+/* Kartu kaca buram; dipakai oleh komponen yang memakai bg-card. */
+@utility glass {
+  background-color: var(--card);
+  backdrop-filter: blur(18px) saturate(1.2);
 }
 
 @utility select-chevron {
@@ -118,10 +168,132 @@
   }
 }
 
+/* Halaman dokumen editor (A4) dan konten ProseMirror. */
+.vog-doc {
+  font-family: "Times New Roman", Times, serif;
+  color: #111;
+  line-height: 1.5;
+}
+.vog-doc :where(h1) {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin: 0.6em 0 0.3em;
+}
+.vog-doc :where(h2) {
+  font-size: 1.4em;
+  font-weight: 700;
+  margin: 0.6em 0 0.3em;
+}
+.vog-doc :where(h3) {
+  font-size: 1.15em;
+  font-weight: 700;
+  margin: 0.5em 0 0.25em;
+}
+.vog-doc :where(p) {
+  margin: 0 0 0.6em;
+}
+.vog-doc :where(ul) {
+  list-style: disc;
+  padding-left: 1.6em;
+  margin: 0 0 0.6em;
+}
+.vog-doc :where(ol) {
+  list-style: decimal;
+  padding-left: 1.6em;
+  margin: 0 0 0.6em;
+}
+.vog-doc :where(blockquote) {
+  border-left: 3px solid #b5c4b1;
+  padding-left: 1em;
+  color: #444;
+}
+.vog-doc :where(table) {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.6em 0;
+  table-layout: fixed;
+}
+.vog-doc :where(td, th) {
+  border: 1px solid #9aa3ad;
+  padding: 4px 6px;
+  vertical-align: top;
+  position: relative;
+}
+.vog-doc :where(th) {
+  background: #eef1f4;
+  font-weight: 700;
+}
+.vog-doc :where(td p, th p) {
+  margin: 0;
+}
+.vog-doc .selectedCell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(80 160 90 / 0.18);
+  pointer-events: none;
+}
+.vog-doc .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #5aa36a;
+}
+.vog-doc :where(img) {
+  max-width: 100%;
+  height: auto;
+}
+.vog-doc :where(hr) {
+  border: 0;
+  border-top: 1px solid #999;
+  margin: 1em 0;
+}
+.vog-doc :where(mark) {
+  background: #fff176;
+}
+.vog-doc p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #9aa1a8;
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+.vog-doc .ProseMirror {
+  outline: none;
+  min-height: 60vh;
+}
+
 @media print {
+  body::before,
+  body::after,
   header,
   footer,
   .no-print {
     display: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
+  /* Mencetak dokumen editor: hanya halaman dokumen yang terlihat. */
+  body.vog-printing * {
+    visibility: hidden;
+  }
+  body.vog-printing .print-page,
+  body.vog-printing .print-page * {
+    visibility: visible;
+  }
+  body.vog-printing .print-page {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .print-page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    min-height: 0 !important;
   }
 }

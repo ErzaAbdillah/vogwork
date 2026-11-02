@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
 import type { ReactNode } from "react";
 import { AppNotices } from "@/components/app-notices";
 import { themeScript } from "@/components/header-controls";
@@ -9,8 +9,8 @@ import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-// Plus Jakarta Sans: huruf karya desainer Indonesia (Tokotype), lisensi OFL.
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
+// Inter Tight: grotesk tipis dan tenang untuk tema "mindful", lisensi OFL.
+const tight = Inter_Tight({ subsets: ["latin"], variable: "--font-tight", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7fbfa" },
-    { media: "(prefers-color-scheme: dark)", color: "#12191c" },
+    { media: "(prefers-color-scheme: light)", color: "#d9dee5" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e1013" },
   ],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="id" className={jakarta.variable} suppressHydrationWarning>
+    <html lang="id" className={tight.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

@@ -56,7 +56,7 @@ export async function countLocalEntries(): Promise<number> {
 
 export async function clearAllData(): Promise<void> {
   const db = getDb();
-  await db.transaction("rw", db.kv, db.files, db.assets, async () => {
-    await Promise.all([db.kv.clear(), db.files.clear(), db.assets.clear()]);
+  await db.transaction("rw", [db.kv, db.files, db.assets, db.versions], async () => {
+    await Promise.all([db.kv.clear(), db.files.clear(), db.assets.clear(), db.versions.clear()]);
   });
 }

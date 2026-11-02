@@ -68,6 +68,10 @@ export interface ToolManifest {
   keywords: string[];
   inputs: PortSpec[];
   outputs: PortSpec[];
+  /** "app" untuk editor berkas (dokumen, spreadsheet, slide); bawaan "tool". */
+  kind?: "app" | "tool";
+  /** Halaman memakai lebar penuh, untuk editor. */
+  wide?: boolean;
   /** Tool butuh unduhan model/data saat pertama dipakai. */
   downloadsOnFirstUse?: Localized;
   seo: ToolSeo;

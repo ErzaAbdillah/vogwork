@@ -13,7 +13,7 @@ export function SplitLayout({ form, preview, className }: { form: ReactNode; pre
 
 export function Section({ title, description, actions, children, className }: { title: ReactNode; description?: ReactNode; actions?: ReactNode; children: ReactNode; className?: string }) {
   return (
-    <section className={cn("rounded-xl border bg-card p-4 shadow-xs sm:p-5", className)}>
+    <section className={cn("rounded-2xl border bg-card p-4 shadow-xs backdrop-blur-xl sm:p-5", className)}>
       <div className="mb-4 flex flex-wrap items-start justify-between gap-2">
         <div className="space-y-0.5">
           <h3 className="font-semibold">{title}</h3>
@@ -28,7 +28,7 @@ export function Section({ title, description, actions, children, className }: { 
 
 export function PreviewPanel({ title, actions, children, className }: { title: ReactNode; actions?: ReactNode; children: ReactNode; className?: string }) {
   return (
-    <div className={cn("overflow-hidden rounded-xl border bg-muted/40", className)}>
+    <div className={cn("overflow-hidden rounded-2xl border bg-muted/40 backdrop-blur-xl", className)}>
       <div className="flex flex-wrap items-center justify-between gap-2 border-b bg-card px-4 py-2.5">
         <h3 className="text-sm font-semibold">{title}</h3>
         <div className="flex flex-wrap items-center gap-2">{actions}</div>

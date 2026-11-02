@@ -1,0 +1,6 @@
+{
+  "extends": "@vogwork/tsconfig/base.json",
+  "include": [
+    "src"
+  ]
+}

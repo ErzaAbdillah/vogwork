@@ -2,7 +2,17 @@
 
 Suite produktivitas gratis yang berjalan di browser. File diproses di perangkat pengguna; tidak ada yang diunggah ke server.
 
-Status: **Fase 0 (fondasi) dan Fase 1 (toolkit MVP)** dari roadmap sudah dibangun.
+Status: **Fase 0 (fondasi), Fase 1 (toolkit MVP), dan editor inti Fase 2** dari roadmap sudah dibangun, dengan tema visual "mindful".
+
+| Aplikasi | Halaman | Isi |
+| --- | --- | --- |
+| Dokumen | `/alat/dokumen` | Tiptap: judul, format teks, daftar, tabel, gambar, tautan, kertas A4/F4/Letter, margin, header/footer, nomor halaman; impor DOCX/HTML/TXT, ekspor DOCX dan cetak PDF |
+| Spreadsheet | `/alat/spreadsheet` | Mesin formula sendiri (40+ fungsi, referensi antar-sheet), format rupiah/persen/tanggal, sel gabungan, salin-tempel, beberapa sheet, grafik batang/garis; impor XLSX/CSV, ekspor XLSX/CSV |
+| Slide | `/alat/slide` | Kanvas 16:9 dengan teks, gambar, bentuk, 4 tema, catatan pembicara, mode presentasi; impor PPTX, ekspor PPTX dan PDF |
+
+Ketiga editor menyimpan file di IndexedDB dengan simpan otomatis, riwayat versi lokal, laporan kompatibilitas saat impor, dan ekspor `.vog`. Uji round-trip DOCX, XLSX, dan PPTX ada di `packages/formats/src/office.test.ts`.
+
+Alat Fase 1:
 
 | Tool | Halaman | Isi |
 | --- | --- | --- |
@@ -15,7 +25,7 @@ Status: **Fase 0 (fondasi) dan Fase 1 (toolkit MVP)** dari roadmap sudah dibangu
 | Hapus Background | `/alat/hapus-background` | MODNet / BiRefNet di browser, latar transparan atau warna pas foto |
 | Konverter Gambar & Data | `/alat/konverter-gambar-csv-json` | JPG/PNG/WEBP + resize; CSV ↔ JSON ↔ XLSX |
 
-Shell aplikasi: hub dengan pencarian (tekan `/`), kategori, mode gelap, bahasa Indonesia/Inggris, PWA yang bisa dipakai offline setelah kunjungan pertama, dan halaman **Data lokal** untuk cadangan, pemulihan, serta penyimpanan permanen.
+Shell aplikasi: tema mindful (latar abu-biru bertekstur grain, cahaya gradasi hijau-kuning, ikon blob gradasi buram, huruf Inter Tight), hub dengan pencarian (tekan `/`), kategori, mode gelap, bahasa Indonesia/Inggris, PWA yang bisa dipakai offline setelah kunjungan pertama, dan halaman **Data lokal** untuk cadangan, pemulihan, serta penyimpanan permanen.
 
 ## Menjalankan
 
@@ -54,9 +64,9 @@ apps/
 packages/
   core/           kontrak VogTool, registry + pencarian, pipeline runner
   storage/        IndexedDB (Dexie), format .vog, cadangan, simpan file
-  formats/        terbilang, tanggal & nomor surat, tata letak PDF, PDF.js, CSV/XLSX, gambar
+  formats/        terbilang, nomor surat, tata letak PDF, PDF.js, CSV, gambar; DOCX, XLSX + formula, PPTX
   workers/        Web Worker untuk PDF & ZIP, OCR (Tesseract.js), AI hapus background
-  ui/             komponen bersama gaya shadcn/ui
+  ui/             komponen bersama gaya shadcn/ui, ikon blob, kerangka editor (Workspace)
   i18n/           bahasa id/en
   tools/*         satu paket per tool
 tooling/tsconfig  konfigurasi TypeScript bersama
@@ -74,7 +84,7 @@ Aturan arsitektur dijaga oleh lint: tool tidak boleh mengimpor tool lain (`no-re
 
 ## Belum dikerjakan (fase berikutnya)
 
-- Fase 2: editor dokumen (Tiptap), spreadsheet, slide, mail merge, riwayat versi.
+- Sisa Fase 2: mail merge (dokumen dari data sheet/CSV); pratinjau pemisah halaman di editor dokumen; pivot, format bersyarat, dan grafik asli XLSX (grafik diekspor sebagai gambar); tabel dan animasi PPTX.
 - Fase 3: pipeline builder visual (runner dan validasinya sudah ada di `packages/core`), transkripsi, BYOK, sinkronisasi terenkripsi.
 - `services/api` (akun dan sinkronisasi) belum dibuat karena Fase 1 tidak membutuhkan server.
 

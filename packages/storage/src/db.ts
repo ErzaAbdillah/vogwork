@@ -1,6 +1,16 @@
 import Dexie, { type Table } from "dexie";
 import type { VogAsset, VogFile } from "./vog";
 
+/** Cuplikan isi file untuk riwayat versi lokal. */
+export interface VersionRow {
+  id?: number;
+  fileId: string;
+  createdAt: number;
+  label: string;
+  title: string;
+  content: unknown;
+}
+
 export interface KvRow {
   key: string;
   value: unknown;
@@ -11,6 +21,7 @@ class VogDatabase extends Dexie {
   files!: Table<VogFile, string>;
   assets!: Table<VogAsset, string>;
   kv!: Table<KvRow, string>;
+  versions!: Table<VersionRow, number>;
 
   constructor() {
     super("vogwork");
@@ -18,6 +29,9 @@ class VogDatabase extends Dexie {
       files: "id, type, updatedAt",
       assets: "hash",
       kv: "key",
+    });
+    this.version(2).stores({
+      versions: "++id, fileId, createdAt",
     });
   }
 }

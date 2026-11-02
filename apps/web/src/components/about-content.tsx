@@ -14,7 +14,11 @@ const libraries: [name: string, license: string, use: { id: string; en: string }
   ["Dexie", "Apache-2.0", { id: "Penyimpanan IndexedDB", en: "IndexedDB storage" }],
   ["Tesseract.js", "Apache-2.0", { id: "OCR", en: "OCR" }],
   ["transformers.js + MODNet / BiRefNet", "Apache-2.0 / MIT", { id: "Hapus background", en: "Background removal" }],
-  ["Plus Jakarta Sans", "OFL-1.1", { id: "Huruf antarmuka", en: "Interface typeface" }],
+  ["Tiptap", "MIT", { id: "Editor dokumen", en: "Document editor" }],
+  ["mammoth, DOMPurify", "BSD-2 / Apache-2.0", { id: "Membuka file Word dengan aman", en: "Opening Word files safely" }],
+  ["ExcelJS", "MIT", { id: "File Excel (.xlsx)", en: "Excel files (.xlsx)" }],
+  ["PptxGenJS, xmldom", "MIT", { id: "File PowerPoint (.pptx)", en: "PowerPoint files (.pptx)" }],
+  ["Inter Tight", "OFL-1.1", { id: "Huruf antarmuka", en: "Interface typeface" }],
 ];
 
 const text = {

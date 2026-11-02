@@ -24,7 +24,7 @@ for (const { file, size, maskable } of targets) {
   await page.setViewportSize({ width: size, height: size });
   const inner = maskable ? size * 0.8 : size;
   await page.setContent(
-    `<html><body style="margin:0;display:grid;place-items:center;width:${size}px;height:${size}px;background:${maskable ? "linear-gradient(135deg,#14917f,#1f6fa3)" : "transparent"}">
+    `<html><body style="margin:0;display:grid;place-items:center;width:${size}px;height:${size}px;background:${maskable ? "#d9dee5" : "transparent"}">
       <div style="width:${inner}px;height:${inner}px">${svg.replace("<svg", '<svg width="100%" height="100%"')}</div>
     </body></html>`,
   );

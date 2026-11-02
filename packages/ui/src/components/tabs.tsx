@@ -54,7 +54,7 @@ export function Tabs<T extends string>({
             onKeyDown={(e) => onKeyDown(e, index)}
             className={cn(
               "inline-flex h-8 items-center gap-1.5 rounded-md px-3 text-sm font-medium whitespace-nowrap text-muted-foreground transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 [&_svg]:size-4",
-              selected ? "bg-background text-foreground shadow-xs" : "hover:text-foreground",
+              selected ? "bg-card-solid text-foreground shadow-xs" : "hover:text-foreground",
             )}
           >
             {item.icon}
@@ -81,7 +81,7 @@ export function Segmented<T extends string>({
   className?: string;
 }) {
   return (
-    <div role="radiogroup" aria-label={label} className={cn("inline-flex min-h-9 max-w-full flex-wrap items-center gap-0.5 rounded-md border border-input bg-background p-0.5 shadow-xs", className)}>
+    <div role="radiogroup" aria-label={label} className={cn("inline-flex min-h-9 max-w-full flex-wrap items-center gap-0.5 rounded-md border border-input bg-card-solid p-0.5 shadow-xs", className)}>
       {options.map((option) => (
         <button
           key={option.value}

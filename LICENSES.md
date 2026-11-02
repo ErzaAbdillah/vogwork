@@ -1,6 +1,6 @@
 # Audit lisensi pihak ketiga
 
-Diperiksa 2 November 2026. Aturan roadmap: hanya MIT, Apache-2.0, atau lisensi permisif lain; hindari AGPL/GPL dan fitur berbayar.
+Diperiksa 2 November 2026, diperbarui 3 November 2026 untuk editor Fase 2. Aturan roadmap: hanya MIT, Apache-2.0, atau lisensi permisif lain; hindari AGPL/GPL dan fitur berbayar.
 
 ## Dibundel ke aplikasi
 
@@ -18,7 +18,13 @@ Diperiksa 2 November 2026. Aturan roadmap: hanya MIT, Apache-2.0, atau lisensi p
 | fflate | 0.8 | MIT | ZIP dan format .vog |
 | dexie | 4.4 | Apache-2.0 | IndexedDB |
 | tesseract.js (+ tesseract.js-core) | 7.0 | Apache-2.0 | OCR |
-| Plus Jakarta Sans (next/font, dihosting sendiri) | — | OFL-1.1 | huruf antarmuka |
+| Inter Tight (next/font, dihosting sendiri) | — | OFL-1.1 | huruf antarmuka |
+| @tiptap/* (react, starter-kit, extension-table, -image, -text-align, -text-style, -highlight, extensions) | 3.32 | MIT | editor dokumen (hanya ekstensi open-source) |
+| mammoth | 1.13 | BSD-2-Clause | impor DOCX |
+| dompurify | 3.4 | Apache-2.0 / MPL-2.0 | sanitasi HTML hasil impor |
+| exceljs | 4.4 | MIT | impor/ekspor XLSX dengan gaya dan formula |
+| pptxgenjs | 4.0 | MIT | ekspor PPTX |
+| @xmldom/xmldom | 0.9 | MIT | membaca XML PPTX |
 
 ## Dimuat saat dipakai (tidak dibundel)
 

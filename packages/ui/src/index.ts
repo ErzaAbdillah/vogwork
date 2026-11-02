@@ -9,3 +9,5 @@ export { PreviewPanel, Section, SplitLayout } from "./components/layout";
 export { TaskStatus } from "./components/task-status";
 export { useAsyncTask, type TaskState } from "./hooks/use-async-task";
 export { useClientValue, useIsClient, useObjectUrl } from "./hooks/browser";
+export { BLOB_SHAPES, BlobIcon, type BlobShape } from "./components/blob-icon";
+export { Workspace, type ImportResult, type WorkspaceExport, type WorkspaceTemplate } from "./editor/workspace";

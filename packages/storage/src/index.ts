@@ -11,3 +11,6 @@ export {
 export { getStorageStatus, requestPersistence, type StorageStatus } from "./persist";
 export { clearAllData, countLocalEntries, exportBackup, getLastBackup, importBackup } from "./backup";
 export { usePersistentState } from "./use-persistent-state";
+export { createFile, deleteFile, getFile, listFiles, listVersions, newFileId, saveVersion, updateFile } from "./files";
+export { useVogFiles, type SaveStatus, type VogFilesApi } from "./use-vog-file";
+export type { VersionRow } from "./db";

@@ -1,0 +1,41 @@
+{
+  "name": "@vogwork/tool-doc-editor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./manifest": "./src/manifest.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vogwork/core": "workspace:*",
+    "@vogwork/formats": "workspace:*",
+    "@vogwork/i18n": "workspace:*",
+    "@vogwork/storage": "workspace:*",
+    "@vogwork/ui": "workspace:*",
+    "lucide-react": "^1.66.0",
+    "@tiptap/react": "^3.32.2",
+    "@tiptap/pm": "^3.32.2",
+    "@tiptap/starter-kit": "^3.32.2",
+    "@tiptap/extension-text-align": "^3.32.2",
+    "@tiptap/extension-table": "^3.32.2",
+    "@tiptap/extension-image": "^3.32.2",
+    "@tiptap/extension-text-style": "^3.32.2",
+    "@tiptap/extension-highlight": "^3.32.2",
+    "@tiptap/extensions": "^3.32.2",
+    "dompurify": "^3.4.17"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@vogwork/tsconfig": "workspace:*",
+    "react": "^19.3.1",
+    "typescript": "5.9.3"
+  }
+}

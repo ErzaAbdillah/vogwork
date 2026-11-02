@@ -52,7 +52,7 @@ export default async function ToolPage({ params }: Props) {
   ];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6 sm:py-8">
+    <div className={tool.wide ? "mx-auto max-w-[1440px] px-4 py-6 sm:py-8" : "mx-auto max-w-6xl px-4 py-6 sm:py-8"}>
       <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-1 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-foreground">
           <T k="home" />
@@ -64,11 +64,9 @@ export default async function ToolPage({ params }: Props) {
       </nav>
 
       <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center">
-        <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary [&_svg]:size-6">
-          <ToolIcon name={tool.icon} />
-        </span>
+        <ToolIcon id={tool.id} icon={tool.icon} className="size-14" />
         <div className="min-w-0 flex-1">
-          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+          <h1 className="text-3xl font-light tracking-tight sm:text-4xl">
             <L text={tool.name} />
           </h1>
           <p className="mt-1 text-muted-foreground">
