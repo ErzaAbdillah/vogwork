@@ -6,7 +6,7 @@ test("hub menampilkan semua alat dan pencarian bekerja", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Kerja tenang");
   const cards = page.locator("#alat ul > li");
-  await expect(cards).toHaveCount(11);
+  await expect(cards).toHaveCount(12);
 
   await page.getByRole("searchbox").fill("kwitansi");
   await expect(cards).toHaveCount(1);
@@ -114,4 +114,38 @@ test("slide: template dan ekspor PPTX", async ({ page }) => {
   const { name, bytes } = await downloadBytes(page, "PowerPoint (.pptx)");
   expect(name).toBe("Laporan rapat.pptx");
   expect(bytes.subarray(0, 2).toString()).toBe("PK");
+});
+
+test("tanda tangan PDF: gambar tanda tangan, isi formulir, ratakan", async ({ page }) => {
+  const { PDFName } = await import("pdf-lib");
+  const doc = await PDFDocument.create();
+  const first = doc.addPage([595, 842]);
+  doc.addPage([595, 842]);
+  doc.getForm().createTextField("Nama").addToPage(first, { x: 60, y: 680, width: 220, height: 20 });
+  await page.goto("/alat/tanda-tangan-pdf");
+  await page.locator('input[type="file"]').setInputFiles({ name: "pernyataan.pdf", mimeType: "application/pdf", buffer: Buffer.from(await doc.save()) });
+  await expect(page.getByText("Halaman 2")).toBeVisible();
+
+  const pad = page.getByLabel("Area menggambar tanda tangan");
+  const box = (await pad.boundingBox())!;
+  await page.mouse.move(box.x + 30, box.y + 100);
+  await page.mouse.down();
+  await page.mouse.move(box.x + 120, box.y + 40, { steps: 8 });
+  await page.mouse.move(box.x + 220, box.y + 110, { steps: 8 });
+  await page.mouse.up();
+  await page.getByRole("button", { name: "Simpan", exact: true }).click();
+  await expect(page.getByTestId("placed-item")).toHaveCount(1);
+  await page.getByRole("button", { name: "Salin ke semua halaman" }).click();
+  await page.getByLabel("Nama").fill("Andi Pratama");
+  await page.getByLabel("Ratakan formulir").check();
+
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Unduh PDF bertanda tangan" }).click();
+  const signed = await PDFDocument.load(readFileSync(await (await download).path()));
+  expect(signed.getPageCount()).toBe(2);
+  expect(signed.getForm().getFields()).toHaveLength(0);
+  for (const p of signed.getPages()) {
+    const xobjects = p.node.Resources()?.lookup(PDFName.of("XObject"));
+    expect(xobjects).toBeTruthy();
+  }
 });

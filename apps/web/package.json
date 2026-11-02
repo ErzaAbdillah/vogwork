@@ -22,6 +22,7 @@
     "@vogwork/tool-invoice": "workspace:*",
     "@vogwork/tool-letter-dinas": "workspace:*",
     "@vogwork/tool-ocr": "workspace:*",
+    "@vogwork/tool-pdf-sign": "workspace:*",
     "@vogwork/tool-pdf-toolkit": "workspace:*",
     "@vogwork/tool-qr": "workspace:*",
     "@vogwork/tool-sheet-editor": "workspace:*",

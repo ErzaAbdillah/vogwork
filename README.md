@@ -17,6 +17,7 @@ Alat Fase 1:
 | Tool | Halaman | Isi |
 | --- | --- | --- |
 | Gabung, Pisah & Kompres PDF | `/alat/gabung-pisah-kompres-pdf` | Gabung + atur urutan, pisah per halaman/rentang, kompres ringan/sedang/kuat, gambar → PDF |
+| Tanda Tangan & Stempel PDF | `/alat/tanda-tangan-pdf` | Gambar atau unggah foto tanda tangan, paraf di semua halaman, stempel bulat/persegi, teks dan tanggal, isi dan ratakan formulir PDF (halaman berputar didukung) |
 | Pembuat QR Code | `/alat/buat-qr-code` | Tautan, WiFi, WhatsApp, email, vCard; warna, logo, PNG/SVG |
 | Sertifikat Massal | `/alat/sertifikat-massal` | Template JPG/PNG/PDF + data Excel/CSV, teks bisa diseret, font kustom, PDF atau ZIP |
 | Surat Dinas | `/alat/surat-dinas` | Kop, pola nomor surat, rincian acara, penandatangan, tembusan; PDF & DOCX |

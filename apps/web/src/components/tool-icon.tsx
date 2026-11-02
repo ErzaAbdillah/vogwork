@@ -12,6 +12,7 @@ import {
   Repeat2,
   ScanText,
   Sheet,
+  Signature,
   type LucideIcon,
 } from "lucide-react";
 
@@ -20,6 +21,7 @@ const glyphs: Record<string, LucideIcon> = {
   "file-stack": FileStack,
   "file-text": FileText,
   sheet: Sheet,
+  signature: Signature,
   presentation: Presentation,
   "qr-code": QrCode,
   award: Award,
@@ -36,6 +38,7 @@ const art: Record<string, { shape: BlobShape; from: string; to: string }> = {
   "sheet-editor": { shape: "arc", from: "#c8ec2a", to: "#2fbf71" },
   "slide-editor": { shape: "bean", from: "#ffa53c", to: "#ff4f8b" },
   "pdf-toolkit": { shape: "drop", from: "#2f8cff", to: "#49e3ff" },
+  "pdf-sign": { shape: "comet", from: "#7ad1ff", to: "#3a5bff" },
   qr: { shape: "star", from: "#d8f53a", to: "#4fd16b" },
   certificate: { shape: "leaf", from: "#ffd84a", to: "#ff9a1f" },
   "letter-dinas": { shape: "comet", from: "#ff4fc8", to: "#9a4dff" },

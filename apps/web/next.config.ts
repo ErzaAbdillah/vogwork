@@ -22,6 +22,7 @@ const config: NextConfig = {
     "@vogwork/tool-invoice",
     "@vogwork/tool-letter-dinas",
     "@vogwork/tool-ocr",
+    "@vogwork/tool-pdf-sign",
     "@vogwork/tool-pdf-toolkit",
     "@vogwork/tool-qr",
   ],

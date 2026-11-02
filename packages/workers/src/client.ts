@@ -1,7 +1,7 @@
 import type { TaskInput, TaskName, TaskOutput } from "./tasks";
 import type { WorkerRequest, WorkerResponse } from "./protocol";
 
-export type { StampField, StampInput, StandardFontKey, TaskName } from "./tasks";
+export type { AnnotationItem, FormField, StampField, StampInput, StandardFontKey, TaskName } from "./tasks";
 
 interface Pending {
   resolve: (value: unknown) => void;

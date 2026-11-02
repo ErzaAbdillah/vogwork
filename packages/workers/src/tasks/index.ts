@@ -1,8 +1,10 @@
 import { zipSync, type Zippable } from "fflate";
+import { annotate, readForm } from "./annotate";
 import { imagesToPdf, merge, optimize, split, stampRecords } from "./pdf";
 import type { Report } from "./types";
 
 export type { Report } from "./types";
+export type { AnnotateInput, AnnotationItem, FormField } from "./annotate";
 export type { ImagesToPdfInput, MergeInput, SplitInput, StampField, StampInput, StandardFontKey } from "./pdf";
 
 export interface ZipInput {
@@ -30,6 +32,8 @@ export const handlers = {
   "pdf.optimize": optimize,
   "pdf.fromImages": imagesToPdf,
   "pdf.stamp": stampRecords,
+  "pdf.annotate": annotate,
+  "pdf.readForm": readForm,
   zip,
 };
 
