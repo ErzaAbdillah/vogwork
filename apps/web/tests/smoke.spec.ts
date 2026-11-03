@@ -6,7 +6,7 @@ test("hub menampilkan semua alat dan pencarian bekerja", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Kerja tenang");
   const cards = page.locator("#alat ul > li");
-  await expect(cards).toHaveCount(13);
+  await expect(cards).toHaveCount(14);
 
   await page.getByRole("searchbox").fill("kwitansi");
   await expect(cards).toHaveCount(1);
@@ -182,4 +182,43 @@ test("PDF ke Word dan kembali ke PDF", async ({ page }) => {
   await page.getByRole("button", { name: "Ubah ke PDF" }).click();
   const pdf = await PDFDocument.load(readFileSync(await (await pdfDownload).path()));
   expect(pdf.getPageCount()).toBe(1);
+});
+
+function jpegSize(bytes: Buffer) {
+  for (let i = 2; i < bytes.length; ) {
+    const marker = bytes[i + 1]!;
+    const length = bytes.readUInt16BE(i + 2);
+    if (marker >= 0xc0 && marker <= 0xc2) return { height: bytes.readUInt16BE(i + 5), width: bytes.readUInt16BE(i + 7) };
+    i += 2 + length;
+  }
+  return null;
+}
+
+test("pas foto: ukuran 3x4 pada 300 dpi dan lembar A4", async ({ page }) => {
+  await page.goto("/alat/pas-foto");
+  const photo = await page.evaluate(async () => {
+    const c = document.createElement("canvas");
+    c.width = 900;
+    c.height = 1200;
+    const x = c.getContext("2d")!;
+    x.fillStyle = "#9cc3e6";
+    x.fillRect(0, 0, 900, 1200);
+    x.fillStyle = "#e0b48c";
+    x.beginPath();
+    x.ellipse(450, 520, 200, 260, 0, 0, Math.PI * 2);
+    x.fill();
+    return c.toDataURL("image/jpeg");
+  });
+  await page.locator('input[type="file"]').setInputFiles({ name: "wajah.jpg", mimeType: "image/jpeg", buffer: Buffer.from(photo.split(",")[1]!, "base64") });
+  await page.getByRole("radio", { name: "Asli" }).click();
+  await page.getByRole("radio", { name: "3 × 4" }).click();
+
+  const single = page.waitForEvent("download");
+  await page.getByRole("button", { name: /Unduh foto/ }).click();
+  expect(jpegSize(readFileSync(await (await single).path()))).toEqual({ width: 354, height: 472 });
+
+  const sheet = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Unduh lembar PDF" }).click();
+  const pdf = await PDFDocument.load(readFileSync(await (await sheet).path()));
+  expect(Math.round(pdf.getPage(0).getWidth())).toBe(595);
 });

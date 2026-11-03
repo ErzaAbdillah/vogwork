@@ -25,6 +25,7 @@ Alat Fase 1:
 | Invoice & Kwitansi | `/alat/invoice-kwitansi` | Diskon, PPN, terbilang, tanda LUNAS, kotak meterai > Rp5 juta |
 | OCR Gambar ke Teks | `/alat/ocr-gambar-ke-teks` | Bahasa Indonesia + Inggris, gambar dan PDF hasil scan |
 | Hapus Background | `/alat/hapus-background` | MODNet / BiRefNet di browser, latar transparan atau warna pas foto |
+| Pas Foto | `/alat/pas-foto` | Ukuran 2×3, 3×4, 4×6 pada 300 dpi, latar asli/merah/biru/putih/lainnya dengan AI, geser-perbesar dengan panduan wajah, kecerahan/kontras, lembar cetak A4 atau 4R (PDF/JPG) dengan garis potong |
 | Konverter Gambar & Data | `/alat/konverter-gambar-csv-json` | JPG/PNG/WEBP + resize; CSV ↔ JSON ↔ XLSX |
 
 Shell aplikasi: tema mindful (latar abu-biru bertekstur grain, cahaya gradasi hijau-kuning, ikon blob gradasi buram, huruf Inter Tight), hub dengan pencarian (tekan `/`), kategori, mode gelap, bahasa Indonesia/Inggris, PWA yang bisa dipakai offline setelah kunjungan pertama, dan halaman **Data lokal** untuk cadangan, pemulihan, serta penyimpanan permanen.

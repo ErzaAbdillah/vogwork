@@ -3,6 +3,7 @@ import {
   ArrowRightLeft,
   Award,
   Box,
+  Contact,
   Eraser,
   FileStack,
   FileText,
@@ -27,6 +28,7 @@ const glyphs: Record<string, LucideIcon> = {
   presentation: Presentation,
   "qr-code": QrCode,
   award: Award,
+  contact: Contact,
   landmark: Landmark,
   "receipt-text": ReceiptText,
   "scan-text": ScanText,
@@ -48,6 +50,7 @@ const art: Record<string, { shape: BlobShape; from: string; to: string }> = {
   invoice: { shape: "wave", from: "#4fe0ff", to: "#2f7dd6" },
   ocr: { shape: "teardrop", from: "#ff5aa5", to: "#a24dff" },
   "bg-remove": { shape: "drop", from: "#8a7bff", to: "#ff7ad9" },
+  "pas-foto": { shape: "circle", from: "#ff6a5a", to: "#3a7bff" },
   converter: { shape: "arc", from: "#f5e34a", to: "#7ed957" },
 };
 

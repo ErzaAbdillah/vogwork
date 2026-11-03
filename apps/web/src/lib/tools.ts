@@ -6,6 +6,7 @@ import docEditor from "@vogwork/tool-doc-editor";
 import invoice from "@vogwork/tool-invoice";
 import letterDinas from "@vogwork/tool-letter-dinas";
 import ocr from "@vogwork/tool-ocr";
+import pasFoto from "@vogwork/tool-pas-foto";
 import pdfConvert from "@vogwork/tool-pdf-convert";
 import pdfSign from "@vogwork/tool-pdf-sign";
 import pdfToolkit from "@vogwork/tool-pdf-toolkit";
@@ -14,4 +15,4 @@ import sheetEditor from "@vogwork/tool-sheet-editor";
 import slideEditor from "@vogwork/tool-slide-editor";
 
 /** Registry di sisi klien: setiap tool membawa `run` dan `ui` yang dimuat lazy. */
-export const registry = createRegistry([docEditor, sheetEditor, slideEditor, pdfToolkit, pdfSign, pdfConvert, qr, certificate, letterDinas, invoice, ocr, bgRemove, converter]);
+export const registry = createRegistry([docEditor, sheetEditor, slideEditor, pdfToolkit, pdfSign, pdfConvert, qr, certificate, letterDinas, invoice, ocr, bgRemove, pasFoto, converter]);
