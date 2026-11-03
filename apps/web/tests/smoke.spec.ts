@@ -6,7 +6,7 @@ test("hub menampilkan semua alat dan pencarian bekerja", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Kerja tenang");
   const cards = page.locator("#alat ul > li");
-  await expect(cards).toHaveCount(12);
+  await expect(cards).toHaveCount(13);
 
   await page.getByRole("searchbox").fill("kwitansi");
   await expect(cards).toHaveCount(1);
@@ -148,4 +148,38 @@ test("tanda tangan PDF: gambar tanda tangan, isi formulir, ratakan", async ({ pa
     const xobjects = p.node.Resources()?.lookup(PDFName.of("XObject"));
     expect(xobjects).toBeTruthy();
   }
+});
+
+test("PDF ke Word dan kembali ke PDF", async ({ page }) => {
+  const { StandardFonts } = await import("pdf-lib");
+  const doc = await PDFDocument.create();
+  const p = doc.addPage([595, 842]);
+  const bold = await doc.embedFont(StandardFonts.HelveticaBold);
+  const regular = await doc.embedFont(StandardFonts.Helvetica);
+  p.drawText("LAPORAN KEGIATAN", { x: 210, y: 780, size: 20, font: bold });
+  p.drawText("Kegiatan pelatihan berjalan lancar dan diikuti empat puluh peserta dari berbagai", { x: 60, y: 740, size: 11, font: regular });
+  p.drawText("unit kerja.", { x: 60, y: 726, size: 11, font: regular });
+  await page.goto("/alat/pdf-ke-word-jpg");
+  await page.locator('input[type="file"]').setInputFiles({ name: "laporan.pdf", mimeType: "application/pdf", buffer: Buffer.from(await doc.save()) });
+  await expect(page.getByLabel("Baca teks dengan OCR")).not.toBeChecked();
+
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Unduh Word (.docx)" }).click();
+  const docx = await download;
+  expect(docx.suggestedFilename()).toBe("laporan.docx");
+  const docxPath = await docx.path();
+
+  await page.getByRole("button", { name: "Buka di editor Dokumen" }).click();
+  await page.getByRole("link", { name: /Buka di editor Dokumen/ }).click();
+  const editor = page.locator(".ProseMirror");
+  await expect(editor.locator("h1")).toHaveText("LAPORAN KEGIATAN");
+  await expect(editor).toContainText("diikuti empat puluh peserta dari berbagai unit kerja.");
+
+  await page.goto("/alat/pdf-ke-word-jpg");
+  await page.getByRole("tab", { name: "Word → PDF" }).click();
+  await page.locator('input[type="file"]').setInputFiles({ name: "laporan.docx", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document", buffer: readFileSync(docxPath) });
+  const pdfDownload = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Ubah ke PDF" }).click();
+  const pdf = await PDFDocument.load(readFileSync(await (await pdfDownload).path()));
+  expect(pdf.getPageCount()).toBe(1);
 });

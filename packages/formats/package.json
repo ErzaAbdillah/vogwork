@@ -15,7 +15,10 @@
     "./xlsx": "./src/sheet/xlsx.ts",
     "./slides": "./src/slides/model.ts",
     "./pptx": "./src/slides/pptx.ts",
-    "./slides-pdf": "./src/slides/pdf.ts"
+    "./slides-pdf": "./src/slides/pdf.ts",
+    "./doc-pdf": "./src/office/doc-pdf.ts",
+    "./pdf-text": "./src/office/pdf-text.ts",
+    "./html-doc": "./src/office/html-doc.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

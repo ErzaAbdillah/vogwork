@@ -6,7 +6,7 @@ Status: **Fase 0 (fondasi), Fase 1 (toolkit MVP), dan editor inti Fase 2** dari 
 
 | Aplikasi | Halaman | Isi |
 | --- | --- | --- |
-| Dokumen | `/alat/dokumen` | Tiptap: judul, format teks, daftar, tabel, gambar, tautan, kertas A4/F4/Letter, margin, header/footer, nomor halaman; impor DOCX/HTML/TXT, ekspor DOCX dan cetak PDF |
+| Dokumen | `/alat/dokumen` | Tiptap: judul, format teks, daftar, tabel, gambar, tautan, kertas A4/F4/Letter, margin, header/footer, nomor halaman; impor DOCX/HTML/TXT, ekspor DOCX dan PDF asli (atau cetak) |
 | Spreadsheet | `/alat/spreadsheet` | Mesin formula sendiri (40+ fungsi, referensi antar-sheet), format rupiah/persen/tanggal, sel gabungan, salin-tempel, beberapa sheet, grafik batang/garis; impor XLSX/CSV, ekspor XLSX/CSV |
 | Slide | `/alat/slide` | Kanvas 16:9 dengan teks, gambar, bentuk, 4 tema, catatan pembicara, mode presentasi; impor PPTX, ekspor PPTX dan PDF |
 
@@ -18,6 +18,7 @@ Alat Fase 1:
 | --- | --- | --- |
 | Gabung, Pisah & Kompres PDF | `/alat/gabung-pisah-kompres-pdf` | Gabung + atur urutan, pisah per halaman/rentang, kompres ringan/sedang/kuat, gambar → PDF |
 | Tanda Tangan & Stempel PDF | `/alat/tanda-tangan-pdf` | Gambar atau unggah foto tanda tangan, paraf di semua halaman, stempel bulat/persegi, teks dan tanggal, isi dan ratakan formulir PDF (halaman berputar didukung) |
+| PDF ↔ Word & Gambar | `/alat/pdf-ke-word-jpg` | PDF ke DOCX (teks bisa disunting dengan deteksi judul/paragraf, atau tata letak persis), OCR otomatis untuk PDF hasil scan, buka hasil di editor Dokumen; PDF ke JPG/PNG per halaman; Word (DOCX) ke PDF asli |
 | Pembuat QR Code | `/alat/buat-qr-code` | Tautan, WiFi, WhatsApp, email, vCard; warna, logo, PNG/SVG |
 | Sertifikat Massal | `/alat/sertifikat-massal` | Template JPG/PNG/PDF + data Excel/CSV, teks bisa diseret, font kustom, PDF atau ZIP |
 | Surat Dinas | `/alat/surat-dinas` | Kop, pola nomor surat, rincian acara, penandatangan, tembusan; PDF & DOCX |

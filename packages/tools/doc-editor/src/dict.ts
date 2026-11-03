@@ -51,7 +51,7 @@ export const dict = {
     pageNumberPreview: "Halaman 1 dari …",
     words: "{count} kata",
     exportDocx: "Word (.docx)",
-    exportPdf: "Cetak / PDF",
+    exportPdf: "Cetak",
   },
   en: {
     placeholder: "Start writing…",
@@ -105,6 +105,6 @@ export const dict = {
     pageNumberPreview: "Page 1 of …",
     words: "{count} words",
     exportDocx: "Word (.docx)",
-    exportPdf: "Print / PDF",
+    exportPdf: "Print",
   },
 };

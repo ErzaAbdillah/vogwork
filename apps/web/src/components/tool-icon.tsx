@@ -1,5 +1,6 @@
 import { BlobIcon, type BlobShape } from "@vogwork/ui";
 import {
+  ArrowRightLeft,
   Award,
   Box,
   Eraser,
@@ -18,6 +19,7 @@ import {
 
 // Hanya ikon yang dipakai manifest yang diimpor, supaya bundle tetap kecil.
 const glyphs: Record<string, LucideIcon> = {
+  "arrow-right-left": ArrowRightLeft,
   "file-stack": FileStack,
   "file-text": FileText,
   sheet: Sheet,
@@ -38,6 +40,7 @@ const art: Record<string, { shape: BlobShape; from: string; to: string }> = {
   "sheet-editor": { shape: "arc", from: "#c8ec2a", to: "#2fbf71" },
   "slide-editor": { shape: "bean", from: "#ffa53c", to: "#ff4f8b" },
   "pdf-toolkit": { shape: "drop", from: "#2f8cff", to: "#49e3ff" },
+  "pdf-convert": { shape: "bean", from: "#55e0c6", to: "#3a7bff" },
   "pdf-sign": { shape: "comet", from: "#7ad1ff", to: "#3a5bff" },
   qr: { shape: "star", from: "#d8f53a", to: "#4fd16b" },
   certificate: { shape: "leaf", from: "#ffd84a", to: "#ff9a1f" },

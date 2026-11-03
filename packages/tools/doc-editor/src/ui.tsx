@@ -5,7 +5,7 @@ import { defaultDocSettings, type DocContent, type PMNode } from "@vogwork/forma
 import { useT } from "@vogwork/i18n";
 import { saveBlob, useVogFiles } from "@vogwork/storage";
 import { Workspace, type ImportResult } from "@vogwork/ui";
-import { FileText, Printer } from "lucide-react";
+import { FileDown, FileText, Printer } from "lucide-react";
 import { dict } from "./dict";
 import { DocEditor } from "./editor";
 import { editorExtensions } from "./extensions";
@@ -67,6 +67,17 @@ export default function DocumentApp() {
             const { docToDocx } = await import("@vogwork/formats/docx");
             const bytes = await docToDocx(content, { measureImage });
             await saveBlob(new Blob([bytes as Uint8Array<ArrayBuffer>], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" }), `${title}.docx`);
+          },
+        },
+        {
+          label: "PDF",
+          icon: <FileDown />,
+          run: async (title) => {
+            const content = api.getContent();
+            if (!content) return;
+            const { docToPdf } = await import("@vogwork/formats/doc-pdf");
+            const bytes = await docToPdf(content, { title });
+            await saveBlob(new Blob([bytes as Uint8Array<ArrayBuffer>], { type: "application/pdf" }), `${title}.pdf`);
           },
         },
         {

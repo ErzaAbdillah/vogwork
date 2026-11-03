@@ -166,3 +166,48 @@ describe("round-trip PPTX", () => {
     expect(Math.round(doc.getPage(0).getWidth())).toBe(960);
   });
 });
+
+describe("PDF ↔ Word", () => {
+  it("dokumen VogWork menjadi PDF asli", async () => {
+    const { docToPdf } = await import("./office/doc-pdf");
+    const paragraphs = Array.from({ length: 60 }, (_, i) => ({ type: "paragraph", attrs: { textAlign: i % 2 ? "justify" : "left" }, content: [{ type: "text", text: `Paragraf ${i + 1} dengan teks yang cukup panjang supaya dibungkus ke beberapa baris di halaman. `.repeat(2) }, { type: "text", text: "tebal", marks: [{ type: "bold" }] }] }));
+    const pdf = await docToPdf({
+      settings: { ...defaultDocSettings(), header: "Laporan", footer: "VogWork" },
+      doc: {
+        type: "doc",
+        content: [
+          { type: "heading", attrs: { level: 1, textAlign: "center" }, content: [{ type: "text", text: "Judul ✓" }] },
+          { type: "bulletList", content: [{ type: "listItem", content: [{ type: "paragraph", content: [{ type: "text", text: "Poin" }] }] }] },
+          { type: "table", content: [{ type: "tableRow", content: [{ type: "tableHeader", content: [{ type: "paragraph", content: [{ type: "text", text: "A" }] }] }] }] },
+          ...paragraphs,
+        ],
+      },
+    });
+    const { PDFDocument } = await import("pdf-lib");
+    const doc = await PDFDocument.load(pdf);
+    expect(doc.getPageCount()).toBeGreaterThan(1);
+    expect(Math.round(doc.getPage(0).getWidth())).toBe(595);
+  });
+
+  it("menyusun potongan teks PDF menjadi judul dan paragraf", async () => {
+    const { paragraphsFromItems } = await import("./office/pdf-text");
+    const item = (str: string, x: number, y: number, size = 11, width = str.length * size * 0.5) => ({ str, x, y, size, width });
+    const result = paragraphsFromItems(
+      [
+        item("LAPORAN KEGIATAN", 220, 780, 18),
+        item("Kegiatan ini bertujuan meningkatkan kemampuan peserta dalam", 72, 740, 11, 451),
+        item("memanfaatkan perangkat digital.", 72, 726),
+        item("Paragraf kedua dimulai di sini.", 72, 700),
+        item("Hal", 72, 680),
+        item(": Undangan", 110, 680),
+      ],
+      595,
+    );
+    expect(result.map((p) => [p.heading, p.align, p.text])).toEqual([
+      [1, "center", "LAPORAN KEGIATAN"],
+      [0, "left", "Kegiatan ini bertujuan meningkatkan kemampuan peserta dalam memanfaatkan perangkat digital."],
+      [0, "left", "Paragraf kedua dimulai di sini."],
+      [0, "left", "Hal : Undangan"],
+    ]);
+  });
+});

@@ -4,7 +4,7 @@ import type { Localized } from "@vogwork/core";
 import { useLocale, useT } from "@vogwork/i18n";
 import { safeFilename, saveBlob, type VersionRow, type VogFilesApi } from "@vogwork/storage";
 import { ArrowLeft, Check, CloudOff, FileDown, FilePlus2, History, Loader2, Save, Trash2, Upload, X } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Button } from "../components/button";
 import { Dropzone } from "../components/dropzone";
 import { Alert, EmptyState } from "../components/feedback";
@@ -114,6 +114,15 @@ export function Workspace<T>({
   const [importing, setImporting] = useState(false);
   const [versions, setVersions] = useState<VersionRow[] | null>(null);
   const [busyExport, setBusyExport] = useState<string | null>(null);
+
+  // Tool lain bisa mengirim pengguna ke file tertentu lewat ?buka=<id>.
+  const { open } = api;
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get("buka");
+    if (!id) return;
+    void open(id);
+    window.history.replaceState(null, "", window.location.pathname);
+  }, [open]);
 
   const dateText = (value: string | number) =>
     new Date(value).toLocaleString(locale === "id" ? "id-ID" : "en-US", { dateStyle: "medium", timeStyle: "short" });
